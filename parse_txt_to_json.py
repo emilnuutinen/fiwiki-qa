@@ -1,14 +1,14 @@
 import json
 import re
 
-in_file = "data/fiwiki.txt"
+in_file = "test_data/example.txt"
 
 fields =['title', 'text']
 
 dict = {}
 
 with open(in_file) as f:
-    title, text = "",""
+    title, text = "", ""
     count = 0
     for line in f:
         if "<doc" in line:
@@ -29,6 +29,6 @@ with open(in_file) as f:
             count += 1
             text = ""
 
-out_file = open('data/fiwiki.json', 'w')
+out_file = open('test_data/example.json', 'w')
 json.dump(dict, out_file, indent=4, sort_keys=False)
 out_file.close()
