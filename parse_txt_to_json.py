@@ -10,7 +10,6 @@ dict = {}
 with open(in_file) as f:
     title, text = "", ""
     count = 0
-    text_lines = 0
     for line in f:
         if "<doc" in line:
             title = "".join(re.findall(r'title="([^;]*)">', line))
