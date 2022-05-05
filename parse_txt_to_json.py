@@ -10,23 +10,24 @@ dict = {}
 with open(in_file) as f:
     title, text = "", ""
     count = 0
+    text_lines = 0
     for line in f:
         if "<doc" in line:
-            #id = "".join(re.findall(r'<doc id="([0-9]*)"', line))
             title = "".join(re.findall(r'title="([^;]*)">', line))
         if not "<doc" in line and line.strip():
             text += line.replace('\n', ' ').replace('</doc>',
                     '').replace('\xa0', '')
         if "</doc>" in line:
-            article = [title,text]
-            i = 0
-            dict2 = {}
-            while i<len(fields):
-                dict2[fields[i]]= article[i]
-                i += 1
+            if not ("tarkoittaa seuraavia" or "voi viitata seuraaviin asioihin") in text:
+                article = [title,text]
+                i = 0
+                dict2 = {}
+                while i<len(fields):
+                    dict2[fields[i]]= article[i]
+                    i += 1
 
-            dict[count] = dict2
-            count += 1
+                dict[count] = dict2
+                count += 1
             text = ""
 
 out_file = open('test_data/example.json', 'w')
