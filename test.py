@@ -11,7 +11,7 @@ with open(in_file) as f:
     paragraphs, cleaned_paragraphs = [], []
     paragraph, title = "", ""
     count = 0
-    for i,line in enumerate(f):
+    for line in f:
         if "<doc" in line:
             title = "".join(re.findall(r'title="([^;]*)">', line))
         if not "<doc" in line:
