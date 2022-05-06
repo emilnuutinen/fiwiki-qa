@@ -14,9 +14,21 @@ Model: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-t
 ```graphql
 {
   Get {
-    Article(limit: 3, nearText: {concepts: ["Mistä meidät on tehty"]}) {
+    Article(
+      ask:{
+        question:"When was the Liang-dynastia period?"
+      }
+      limit:1,
+    ){
       title
       text
+      _additional{
+        answer{
+          certainty
+          result
+          hasAnswer
+        }
+      }
     }
   }
 }
@@ -30,16 +42,15 @@ Result is:
     "Get": {
       "Article": [
         {
-          "text": "Luettelo alkuaineista Tämä on luettelo tunnetuista alkuaineista....",
-          "title": "Luettelo alkuaineista"
-        },
-        {
-          "text": "Alkuaine Alkuaine määritellään aineeksi, jonka atomien ytimissä on tietty määrä protoneja....",
-          title": "Alkuaine"
-        },
-        {
-          "text": "Avaruus Avaruus on tähtitieteessä pääosin tyhjiön muodostama osa maailmankaikkeutta...",
-          "title": "Avaruus"
+          "_additional": {
+            "answer": {
+              "certainty": 0.7036854743957519,
+              "hasAnswer": true,
+              "result": "502 – 557"
+            }
+          },
+          "text": "Liang-dynastia Liang-dynastia (梁 [liáng]) hallitsi osaa Etelä-Kiinasta 502 – 557. Liang-dynastia oli yksi Eteläisistä dynastioista. Muut Eteläiset dynastiat olivat: Liang-dynastia oli buddhalaisuuden kulta-aikaa Etelä-Kiinassa. Jiangkangissa sijaitsevassa hovissa kulttuuri kukoisti. Tämäkin rauhanaika kuitenkin päättyi sotilasperheiden (shijia 士家, binghu 兵戶) kapinointiin.  ",
+          "title": "Liang-dynastia"
         }
       ]
     }
