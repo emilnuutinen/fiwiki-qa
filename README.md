@@ -16,9 +16,10 @@ Model: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-t
   Get {
     Article(
       ask:{
-        question:"When was the Liang-dynastia period?"
+        question:"Who is the grandfather of Aleksis Kivi?"
+        rerank:true
       }
-      limit:1,
+      limit:3,
     ){
       title
       text
@@ -44,16 +45,14 @@ Result is:
         {
           "_additional": {
             "answer": {
-              "certainty": 0.7036854743957519,
+              "certainty": 0.4585587501525879,
               "hasAnswer": true,
-              "result": "502 – 557"
+              "result": "anders johan stenvall"
             }
           },
-          "text": "Liang-dynastia Liang-dynastia (梁 [liáng]) hallitsi osaa Etelä-Kiinasta 502 – 557. Liang-dynastia oli yksi Eteläisistä dynastioista. Muut Eteläiset dynastiat olivat: Liang-dynastia oli buddhalaisuuden kulta-aikaa Etelä-Kiinassa. Jiangkangissa sijaitsevassa hovissa kulttuuri kukoisti. Tämäkin rauhanaika kuitenkin päättyi sotilasperheiden (shijia 士家, binghu 兵戶) kapinointiin.  ",
-          "title": "Liang-dynastia"
-        }
-      ]
-    }
-  }
-}
+          "text": "Aleksis Kivi Aleksis Kivi (oik. Alexis Stenvall;Kivien nimet. Yle.fi: Aristoteleen kantaapää. 10. lokakuuta 1834 Nurmijärvi – 31. joulukuuta 1872 Tuusula) oli suomalainen kirjailija. Kivi kirjoitti kansallisromaanin aseman saavuttaneen romaanin \"Seitsemän veljestä\" (1870), näytelmiä kuten \"Nummisuutarit\" (1864) ja runoja.\"Suuri henkilökirja\" 2001, s.336. Kiven teksteissä on sekä romanttisia että realistisia piirteitä. Kivi kykeni luomaan usealla kirjallisuuden alalla korkeatasoisen tuotannon aikana, jolloin suomenkielisen kirjallisuuden perinnettä, kansanrunoutta lukuun ottamatta, ei ollut olemassa. Kivi oli ensimmäinen suomalainen ammattikirjailija. 1900-luvun alun Kivi-renessanssista alkaen hän on ollut Suomen kansalliskirjailija. Useita Aleksis Kiven runoja ja teoksiin sisältyviä laulutekstejä on sävelletty lauluiksi. Näitä ovat muun muassa ”Onnelliset”, ”Keinu”, ”Metsämiehen laulu”, ”Oravan laulu”, ”Sydämeni laulu”, ”Seitsemän miehen voima” ja ”Mitä minä huolin”. Kiven isoisän isällä Johan Stenvallilla oli ollut Nurmijärven Palojoella sotilastorppa vuodesta 1766. Vanhimmat tunnetut esivanhemmat ovat Yrjö Blomstedtin mukaan Janakkalasta. Äidinisä Antti Hamberg eli seppänä Tuusulan Nahkelassa. Aleksis Kiven isänisä Anders Johan Stenvall oli merimies. Kirjailijan oma isä Erik Stenvall oli asunut lapsuutensa Helsingissä.......
+          ",
+          "title": "Aleksis Kivi"
+        },
+        ....
 ```
