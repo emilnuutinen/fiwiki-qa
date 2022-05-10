@@ -1,7 +1,7 @@
 import json
 import weaviate
 
-client = weaviate.Client("http://localhost:8080")
+client = weaviate.Client("http://localhost:8484", timeout_config = (5, 40))
 
 schema_class = {
     "class": "Article",
@@ -19,10 +19,10 @@ schema_class = {
 
 new_class = client.schema.create_class(schema_class)
 
-file = open('test_data/example.json')
+file = open('data/fiwiki.json')
 data = json.load(file)
 
-def add_data(data, batch_size=2):
+def add_data(data, batch_size=1):
     no_items_in_batch = 0
 
     for index in data:
