@@ -6,12 +6,12 @@ services:
     - --host
     - 0.0.0.0
     - --port
-    - '8080'
+    - '8484'
     - --scheme
     - http
     image: semitechnologies/weaviate:1.13.1
     ports:
-    - 8080:8080
+    - 8484:8484
     restart: on-failure:0
     environment:
       TRANSFORMERS_INFERENCE_API: 'http://t2v-transformers:8080'
@@ -25,9 +25,23 @@ services:
   t2v-transformers:
     image: semitechnologies/transformers-inference:sentence-transformers-paraphrase-multilingual-MiniLM-L12-v2
     environment:
-      ENABLE_CUDA: '0'
+      ENABLE_CUDA: '1'
+      NVIDIA_VISIBLE_DEVICES: 'all'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities: 
+            - 'gpu'
   qna-transformers:
     image: finsquad-qna
     environment:
-      ENABLE_CUDA: '0'
+      ENABLE_CUDA: '1'
+      NVIDIA_VISIBLE_DEVICES: 'all'
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities: 
+            - 'gpu'
 ...

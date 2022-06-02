@@ -1,7 +1,7 @@
 import json
 import re
 
-in_file = "test_data/example.txt"
+in_file = "data/fiwiki.txt"
 fields =['title', 'text']
 dict = {}
 
@@ -29,6 +29,6 @@ with open(in_file) as f:
                 count += 1
             text = ""
 
-out_file = open('test_data/example.json', 'w')
+out_file = open('data/fiwiki.json', 'w')
 json.dump(dict, out_file, indent=4, sort_keys=False)
 out_file.close()

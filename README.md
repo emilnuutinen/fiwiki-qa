@@ -5,11 +5,11 @@ Data: Finnish Wikipedia
 Model: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
 
 
-## Usage
+## Usage (with Weaviate console)
 
-1. Start up Weaviate: `docker-compose up -d`. Once completed, Weaviate is running on [`http://localhost:8080`]().
+1. Start up Weaviate: `docker-compose up -d`. Once completed, Weaviate is running on [`http://localhost:8484`]().
 3. Run `python import_data.py` to import the wine data to Weaviate.
-4. Navigate to [console.semi.technology](https://console.semi.technology/), connect to `http://localhost:8080`, navigate to the query module.
+4. Navigate to [console.semi.technology](https://console.semi.technology/), connect to `http://localhost:8484`, navigate to the query module.
 5. Run query's like:
 ```graphql
 {
@@ -56,3 +56,11 @@ Result is:
         },
         ....
 ```
+
+### Testing locally
+
+
+1. Start up Weaviate: `docker-compose up -d`. Once completed, Weaviate is running on [`http://localhost:8484`]().
+2. Run `python import_data.py` to import the wine data to Weaviate.
+3. Replace the query in `query.py` with your own.
+4. Run `python query.py > result.txt`
