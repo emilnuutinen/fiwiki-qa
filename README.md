@@ -60,7 +60,7 @@ Result is:
 ### Testing locally
 
 
-1. Start up Weaviate: `docker-compose up -d`. Once completed, Weaviate is running on [`http://localhost:8484`]().
+1. Start up Weaviate: `docker-compose up -d`. Once completed, Weaviate is running on [`http://localhost:8080`]().
 2. Run `python import_data.py` to import the test data to Weaviate.
 3. Replace the query in `query.py` with your own.
 4. Run `python query.py > result.txt`
