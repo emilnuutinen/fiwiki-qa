@@ -1,10 +1,20 @@
+import json
 import weaviate
 
 client = weaviate.Client("http://localhost:8484")
 
-query = '{Get {Article(ask:{question:"When was the Liang-dynastia period?" rerank:true} limit:3,){title text _additional{answer{certainty result hasAnswer}}}}}'
+ask = {
+    "question": "Mitä ASCII sisältää?",
+    "rerank": "true"
+}
 
+result = (
+    client.query
+    .get("Article", ["title", "_additional {answer {hasAnswer certainty result} }"])
+    .with_ask(ask)
+    .with_limit(3)
+    .do()
+)
 
-result = client.query.raw(query)
-
-print(result)
+pretty = json.dumps(result, indent=2, ensure_ascii=False)
+print(pretty)
