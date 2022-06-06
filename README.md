@@ -7,9 +7,9 @@ Model: [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-t
 
 ## Usage (with Weaviate console)
 
-1. Start up Weaviate: `docker-compose up -d`. Once completed, Weaviate is running on [`http://localhost:8484`]().
+1. Start up Weaviate: `docker-compose up -d`. Once completed, Weaviate is running on [`http://localhost:8080`]().
 3. Run `python import_data.py` to import the wine data to Weaviate.
-4. Navigate to [console.semi.technology](https://console.semi.technology/), connect to `http://localhost:8484`, navigate to the query module.
+4. Navigate to [console.semi.technology](https://console.semi.technology/), connect to `http://localhost:8080`, navigate to the query module.
 5. Run query's like:
 ```graphql
 {
