@@ -1,11 +1,10 @@
 import json
 import re
 
-in_file = "data/fiwiki.txt"
 fields =['title', 'text']
 dict = {}
 
-with open(in_file) as f:
+with open('data/fiwiki.txt') as f:
     title, text = "", ""
     count = 0
 
@@ -13,8 +12,7 @@ with open(in_file) as f:
         if "<doc" in line:
             title = "".join(re.findall(r'title="([^;]*)">', line))
         if not "<doc" in line and line.strip():
-            text += line.replace('\n', ' ').replace('</doc>',
-                    '').replace('\xa0', '')
+            text += line.replace('</doc>','').replace('\xa0', '').replace('\n', ' ')
         if "</doc>" in line:
             if not ("tarkoittaa seuraavia" or "voi viitata seuraaviin asioihin") in text:
                 article = [title,text]
@@ -29,6 +27,5 @@ with open(in_file) as f:
                 count += 1
             text = ""
 
-out_file = open('data/fiwiki.json', 'w')
-json.dump(dict, out_file, indent=4, sort_keys=False)
-out_file.close()
+with open('data/fiwiki.json', 'w') as out_file:
+    json.dump(dict, out_file, indent=4, sort_keys=False)

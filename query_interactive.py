@@ -2,7 +2,7 @@ import json
 import weaviate
 import readline
 
-client = weaviate.Client("http://localhost:8484")
+client = weaviate.Client("http://epsilon-it.utu.fi/qa-fi")
 
 
 while True:

@@ -1,7 +1,7 @@
 import json
 import weaviate
 
-client = weaviate.Client("http://localhost:8484")
+client = weaviate.Client("http://epsilon-it.utu.fi/qa-fi")
 
 ask = {
     "question": "Mitä ASCII sisältää?",
